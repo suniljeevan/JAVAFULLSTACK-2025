@@ -41,12 +41,17 @@ class shapeimpl extends shape {
 	}
 }
 
-
 public class TEST2 {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+        shapeimpl ob=new shapeimpl(2);
+        ob.area();
+        ob.volume();
+        ob.showRules();
 	}
 
 }
+
+
+
+
+
