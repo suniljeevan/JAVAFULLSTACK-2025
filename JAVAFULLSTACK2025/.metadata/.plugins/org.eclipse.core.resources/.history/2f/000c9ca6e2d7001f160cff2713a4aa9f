@@ -1,0 +1,7 @@
+package MYPACK;
+
+//Calculator service 
+// suffix must be Service
+public class CalculatorService {
+
+}
