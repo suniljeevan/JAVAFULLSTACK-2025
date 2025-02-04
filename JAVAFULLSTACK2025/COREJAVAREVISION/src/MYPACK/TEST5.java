@@ -1,4 +1,4 @@
-//Loose Coupling using Comparator Interface for soring
+//Loose Coupling using Comparator Interface for sorting
 // Using Lambda Expression
 
 package MYPACK;
