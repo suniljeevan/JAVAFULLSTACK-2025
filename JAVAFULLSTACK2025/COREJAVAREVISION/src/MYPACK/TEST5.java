@@ -1,6 +1,10 @@
+//Loose Coupling using Comparator Interface for soring
+// Using Lambda Expression
+
 package MYPACK;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -99,14 +103,54 @@ public class TEST5 {
 		List<PicnicSpot> spots=new ArrayList<PicnicSpot>();
 		spots.add(ob1);spots.add(ob2);spots.add(ob3);
 		spots.add(ob4);spots.add(ob5);
-		
+		System.out.println("Before sorting");
 		for(PicnicSpot p:spots)
 		System.out.println(p);
 		
+		//Comparator compare(2 objects of picnicSPot)
+		Collections.sort(spots,(x,y)-> {
+			return x.getName().compareTo(y.getName());
+		}
+		);
 		
-
+		System.out.println("Sorted by name");
+		for(PicnicSpot p:spots)
+			System.out.println(p);
+		//Comparator compare(2 objects of picnicSPot)
+				Collections.sort(spots,(x,y)-> {
+					return (int)(x.getDistance()-y.getDistance());
+				}
+				);	
+				System.out.println("Sorted by distance");
+				for(PicnicSpot p:spots)
+					System.out.println(p);
+				Collections.sort(spots,(x,y)-> {
+					return (int)(y.getDistance()-x.getDistance());
+				}
+				);	
+				System.out.println("Reverse Sorted by distance");
+				for(PicnicSpot p:spots)
+					System.out.println(p);
+				
+				Collections.sort(spots,(x,y)-> {
+					if(x.getRatings()<y.getRatings())return -1;
+					else return 1;					
+				}
+				);	
+				System.out.println("Sorted by Ratings");
+				for(PicnicSpot p:spots)
+					System.out.println(p);
+				Collections.sort(spots,(x,y)-> {
+					if(y.getRatings()<x.getRatings())return -1;
+					else return 1;	
+				}
+				);	
+				System.out.println("Reverse Sorted by Ratings");
+				for(PicnicSpot p:spots)
+					System.out.println(p);
+		
+			
 	}
-
 }
 
 
