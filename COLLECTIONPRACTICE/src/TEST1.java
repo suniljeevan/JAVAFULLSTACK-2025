@@ -2,8 +2,10 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.stream.Collectors;
 
 public class TEST1 {
 	public static void main(String[] args) {
@@ -66,6 +68,52 @@ public class TEST1 {
         	       list.indexOf(new Integer(200)));
         	       System.out.println("index of 200 is "+
         	    	       list.lastIndexOf(new Integer(200)));
+        	//printing few objects from the list 
+        	System.out.println("Printing first 5 ");
+        	 for(int i=0;i<=4;i++) 
+        		 System.out.println(list.get(i));
+       System.out.println("Before sorting:");
+       System.out.println(list);
+       System.out.println("After sorting");
+       Collections.sort(list);
+       System.out.println(list);
+       //print all integer 
+       System.out.println("stream for display");
+       list.stream().
+       forEach(x->System.out.println(x)); 
+       System.out.println("By method reference");
+       list.stream().
+       forEach(System.out::println); 
+       List<Integer> evenlist=
+    		 list.stream().filter(x->(x%2==0))
+    		     .collect(Collectors.toList());       
+       System.out.println("Even Integers are "+evenlist);
+       List<Integer> oddlist=
+      		 list.stream().filter(x->(x%2!=0))
+      		     .collect(Collectors.toList());       
+         System.out.println("Odd Integers are "+oddlist);
+         System.out.println("Sorted List");
+         list.stream().sorted().forEach(System.out::println);
+         System.out.println(list.stream().anyMatch(x->(x%3==0)));
+         System.out.println(list.stream().anyMatch(x->(x%10==0)));
+         System.out.println(list.stream().allMatch(x->(x%10==0)));
+         int smallest=list.stream()
+        		 .min((x,y)->Integer.compare(x, y)).get();
+         System.out.println("smallest integer is "+smallest);
+         int largest=list.stream()
+        		 .max((x,y)->Integer.compare(x, y)).get();
+         System.out.println("largest integer is "+largest);
+        int s= list.stream().mapToInt(Integer::intValue)
+             .sum();
+        System.out.println("sum is "+s);
+        double avg=(double)s/list.stream().count();
+        System.out.println("Count "+list.stream().count());
+        System.out.println("average "+avg);
 	}
 
 }
+
+
+
+
+
