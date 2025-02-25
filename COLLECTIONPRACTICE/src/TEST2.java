@@ -104,7 +104,7 @@ public class TEST2 {
        System.out.println(studentList);
        System.out.println("Before Insert");
        System.out.println(studentList);
-       studentList.add(0,new Student(151,"lahari",0,"Andhra"));
+       studentList.add(0,new Student(151,"lahari",9,"Andhra"));
        System.out.println("After Insert");
        System.out.println(studentList);
        studentList.remove(3);
@@ -204,6 +204,17 @@ public class TEST2 {
     		).collect(Collectors.toList());
    System.out.println("Students with cgpa>=7 are");
    System.out.println(bettercgpastudents);
+   Student slowest=studentList.stream()
+  		 .min((x,y)->Double.compare(x.getCgpa(), y.getCgpa())).get();
+   System.out.println("student with minimum cgpa is "+slowest);
+   //change to highest in the list
+   int index=studentList.indexOf(slowest);
+   studentList.get(index).setCgpa(9.9);
+   System.out.println(studentList);
+   Student highest=studentList.stream()
+	  		 .max((x,y)->Double.compare(x.getCgpa(), y.getCgpa())).get();
+	   System.out.println("student with maximum cgpa is "+highest);
+	   
 	}
 }
 
