@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 class Student implements Comparable<Student>{
 	private int id;
@@ -177,21 +178,33 @@ public class TEST2 {
 	System.out.println(studentList);
 	System.out.println("after sorting: by Cgpa Asc");
 	Collections.sort(studentList,(x,y)-> {
-		return (int)(x.getCgpa()-y.getCgpa());
+		return Double.compare(x.getCgpa(), y.getCgpa());
 		// return Integer.compare(x.getId(),y.getId());
 	}
 			);
 	System.out.println(studentList);
 	System.out.println("after sorting: by Cgpa Desc");
 	Collections.sort(studentList,(x,y)-> {
-		return (int)(y.getCgpa()-x.getCgpa());
+		return Double.compare(y.getCgpa(), x.getCgpa());
 		// return Integer.compare(x.getId(),y.getId());
 	}
 			);
 	System.out.println(studentList);
+	//print all Student
+	System.out.println("stream for display");
+    studentList.stream().
+    forEach(x->System.out.println(x));
+    System.out.println("stream by method reference");
+    studentList.stream().
+    forEach(System.out::println);
+	//filter students with cgpa >7
+   List<Student> bettercgpastudents=
+		   studentList.stream().filter(x-> 
+          x.getCgpa()>=7
+    		).collect(Collectors.toList());
+   System.out.println("Students with cgpa>=7 are");
+   System.out.println(bettercgpastudents);
 	}
-	
-
 }
 
 
