@@ -121,8 +121,76 @@ public class TEST2 {
    	System.out.println("Printing first 5 ");
    	 for(int i=0;i<=4;i++) 
    		 System.out.println(studentList.get(i));
+	
+	 /*Limitation of Comparable :
+	we cant apply lamda
+	either or instead all
+	
+	Comparator can :
+	apply lambda
+	all way of sorting possible
+	
+	*/
+	System.out.println("Before sorting:");
+	System.out.println(studentList);
+	System.out.println("after sorting: by ID Asc");
+	Collections.sort(studentList,(x,y)-> {
+		return x.getId()-y.getId();
+		// return Integer.compare(x.getId(),y.getId());
 	}
-	 
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by ID Desc");
+	Collections.sort(studentList,(x,y)-> {
+		return y.getId()-x.getId();
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by Name Asc");
+	Collections.sort(studentList,(x,y)-> {
+		return x.getName().compareTo(y.getName());
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by Name Desc");
+	Collections.sort(studentList,(x,y)-> {
+		return y.getName().compareTo(x.getName());
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by Address Asc");
+	Collections.sort(studentList,(x,y)-> {
+		return x.getAddress().compareTo(y.getAddress());
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by Address Desc");
+	Collections.sort(studentList,(x,y)-> {
+		return y.getAddress().compareTo(x.getAddress());
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by Cgpa Asc");
+	Collections.sort(studentList,(x,y)-> {
+		return (int)(x.getCgpa()-y.getCgpa());
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	System.out.println("after sorting: by Cgpa Desc");
+	Collections.sort(studentList,(x,y)-> {
+		return (int)(y.getCgpa()-x.getCgpa());
+		// return Integer.compare(x.getId(),y.getId());
+	}
+			);
+	System.out.println(studentList);
+	}
+	
 
 }
 
