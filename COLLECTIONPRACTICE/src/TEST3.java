@@ -123,6 +123,12 @@ public class TEST3 {
 			.max((x,y)->Double.compare(x.getPrice(), y.getPrice()))
 			.get();
 		System.out.println("Book with more price is "+morepricedbook);
+		// find the total price of all the books present in the set
+		// reduce that reduces Object to Double
+		double sum=books.stream().mapToDouble(x->x.getPrice())
+				.reduce(0, (s,y)->s+y);
+		System.out.println(books);
+		System.out.println("Total Price is "+sum);
 	}
 
 }
