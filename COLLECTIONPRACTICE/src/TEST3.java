@@ -81,10 +81,6 @@ class Book implements Comparable<Book>{
 	public int compareTo(Book b) {
 		return Integer.compare(bookId, b.getBookId());
 	}
-	
-	
-	
-	
 }
 public class TEST3 {
 	public static void main(String[] args) {
@@ -93,7 +89,17 @@ public class TEST3 {
 		strings.add("anil");
 		strings.add("ajith");
 		strings.add("akram");
+		// insertion order is not preserved
 		System.out.println(strings);
+		Set<Book> books=new HashSet<Book>();
+		books.add(new Book(1001,"Pride and Prejudice","whitehall",823,1,1813));
+		books.add(new Book(1001,"The great gatsby","whitehall",1000,1,1900));
+		books.add(new Book(1003,"To kill a mockingbird","Roll books",823,1,1913));
+		books.add(new Book(1004,"1984","Rupa Publication",823,1,1913));
+		books.add(new Book(1005,"Animal Farm","Apk Publishers",823,1,1927));
+		books.add(new Book(1006,"Anna Karenina","Agarwal Publishers",823,2,1923));
+		System.out.println(books);
+		//Set never allow duplicates
 	}
 
 }
