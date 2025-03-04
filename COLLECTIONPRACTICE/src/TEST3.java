@@ -1,5 +1,6 @@
 //Practice Set Collection for Custom object
 import java.util.*;
+import java.util.stream.Collectors;
 class Book implements Comparable<Book>{
 	private int bookId;
 	private String bookTitle;
@@ -98,8 +99,25 @@ public class TEST3 {
 		books.add(new Book(1004,"1984","Rupa Publication",823,1,1913));
 		books.add(new Book(1005,"Animal Farm","Apk Publishers",823,1,1927));
 		books.add(new Book(1006,"Anna Karenina","Agarwal Publishers",823,2,1923));
+		books.remove(new Book(1001,"Pride and Prejudice","whitehall",823,1,1813));
+		System.out.println(" A book removed");
 		System.out.println(books);
-		//Set never allow duplicates
+		System.out.println("Remove book with 1005");
+		//get is not applicable bcz Set in indexed
+		Set<Book> filtered=books.stream()
+				.filter(x->x.getBookId()==1005).collect(Collectors.toSet());
+		System.out.println(filtered);
+		books.remove(filtered);
+		System.out.println(" Book with id 1005 removed");
+		System.out.println(books);
+		
 	}
 
 }
+
+
+
+
+
+
+
