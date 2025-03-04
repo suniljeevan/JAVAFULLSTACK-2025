@@ -110,7 +110,19 @@ public class TEST3 {
 		books.remove(filtered);
 		System.out.println(" Book with id 1005 removed");
 		System.out.println(books);
-		
+		//search a book
+		boolean res=books.contains(new Book(1006,"Anna Karenina","Agarwal Publishers",823,2,1923));
+		System.out.println(res);
+		//search a book with less price
+		Book lesspricedbook=books.stream()
+		.min((x,y)->Double.compare(x.getPrice(), y.getPrice()))
+				.get();
+		System.out.println("Book with less price is "+lesspricedbook);
+		//search a book with more price
+		Book morepricedbook=books.stream()
+			.max((x,y)->Double.compare(x.getPrice(), y.getPrice()))
+			.get();
+		System.out.println("Book with more price is "+morepricedbook);
 	}
 
 }
