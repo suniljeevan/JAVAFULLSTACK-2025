@@ -4,4 +4,14 @@
   <welcome-file-list>
     <welcome-file>home.html</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>InsertController</display-name>
+    <servlet-name>InsertController</servlet-name>
+    <servlet-class>com.presidency.controller.InsertController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertController</servlet-name>
+    <url-pattern>/insert</url-pattern>
+  </servlet-mapping>
 </web-app>
